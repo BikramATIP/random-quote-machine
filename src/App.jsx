@@ -1,13 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react';
 import './App.css'
 
 
 function App() {
-  const [quote, setQuote] = useState(getQuote())
+  const [count, setCount] = useState(0)
 
-  const getQuote = async () => {
+ /* const getQuote = async () => {
     try {
      const res = await fetch('https://zenquotes.io/api/random')
      const data = await res.json();
@@ -16,11 +14,11 @@ function App() {
     } catch (error) {
       console.error(`Error: ${error}`)
     }
-  }
+  } */
 
   return (
     <>
-      <h1>Vite + React</h1>
+      <h1>Random Quote Generator</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
