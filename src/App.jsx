@@ -1,37 +1,39 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
- /* const getQuote = async () => {
+  
+  const getQuote = async () => {
     try {
-     const res = await fetch('https://zenquotes.io/api/random')
-     const data = await res.json();
-     return data
-     return data
+      const response = await fetch('https://timshim-quotes-v1.p.rapidapi.com/quotes')
+      const data = await response.json()
+      console.log(data)
     } catch (error) {
-      console.error(`Error: ${error}`)
+      console.error('There was an error: ', error)
     }
-  } */
+  }
 
+  getQuote();
+
+
+
+  
   return (
     <>
       <h1>Random Quote Generator</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button>
+          Get Quote
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+      <p className="read-the-docs">  
+       
       </p>
     </>
   )
 }
+
 
 export default App
