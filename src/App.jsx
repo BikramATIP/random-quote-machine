@@ -1,35 +1,27 @@
 import { useState, useEffect } from 'react';
+import quotes from './sample/quotes.json'
 import './App.css'
 
 
 function App() {
+  const [quote, setQuote] = useState({"author": "Abraham Lincoln", "content": "Character is like a tree and reputation like a shadow. The shadow is what we think of it; the tree is the real thing.", "tags": "famous-quotes"})
   
-  const getQuote = async () => {
-    try {
-      const response = await fetch('https://timshim-quotes-v1.p.rapidapi.com/quotes')
-      const data = await response.json()
-      console.log(data)
-    } catch (error) {
-      console.error('There was an error: ', error)
-    }
+  const updateQuote = () => {
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    setQuote(randomQuote)
   }
-
-  getQuote();
-
-
-
   
   return (
     <>
       <h1>Random Quote Generator</h1>
       <div className="card">
-        <button>
+        <button onClick={updateQuote}>
           Get Quote
         </button>
-        
+
       </div>
       <p className="read-the-docs">  
-       
+       {quote.content}
       </p>
     </>
   )
