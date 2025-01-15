@@ -1,8 +1,8 @@
 #root {
-  max-width: 1280px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  padding: 2rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -12,9 +12,53 @@
 }
 
 .card {
-  padding: 2em;
+  padding: 6rem 12rem;
+  background-color: black;
+  border-radius: 1rem;
+
 }
 
-.read-the-docs {
-  color: #888;
+.quote {
+  color: #f0f0f0; 
+  padding: 0;
+  margin: 0;
+ font-style: italic;
+ font-size: 1.5rem;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  
+}
+h1 {
+  position: absolute;
+  top: 70px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+}
+button {
+  margin-bottom: 10px;
+}
+.category-container {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  justify-content: center;
+  gap: 10px;
+  
+}
+.category {
+ color: white;
+ text-decoration: none;
+ text-indent: 0;
+ list-style-type: none;
+ padding: 3px
+}
+.wrapper {
+ background-color: red;
+ border-radius: 4px;
 }
