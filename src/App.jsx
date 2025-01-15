@@ -2,19 +2,21 @@ import { useState, useEffect } from 'react';
 import quotes from './sample/quotes.json'
 import './App.css'
 
-
 function App() {
-  const [quote, setQuote] = useState("")
-  
+  const [quote, setQuote] = useState({
+    content: '',
+    author: '',
+    tags: []
+  });
+
   const updateQuote = () => {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    setQuote(randomQuote)
-  }
-  
-  const formatTag = (tag) => {
-   return tag.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())
-  }
+    setQuote(randomQuote);
+  };
 
+  const formatTag = (tag) => {
+    return tag.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
+  };
 
   return (
     <div className="container">
@@ -23,21 +25,21 @@ function App() {
         <button onClick={updateQuote}>
           Get Quote
         </button>
-        <p className="quote">  
-       {quote.content}
-      </p>
-
-      <ul className="category-container">
-      { quote.tags.map((tag, index) => {
-        return <div className="wrapper"><li key={index} className="category">{formatTag(tag)}</li></div>
-      })}
-       
-     
-      </ul>
+        {quote.content && quote.author && (
+          <p className="quote">  
+            {`"${quote.content}" - ${quote.author}`}
+          </p>
+        )}
+        <ul className="category-container">
+          {quote.tags.map((tag, index) => (
+            <div className="wrapper" key={index}>
+              <li className="category">{formatTag(tag)}</li>
+            </div>
+          ))}
+        </ul>
       </div>
     </div>
-  )
+  );
 }
 
-
-export default App
+export default App;

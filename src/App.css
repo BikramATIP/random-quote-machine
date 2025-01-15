@@ -38,10 +38,14 @@ h1 {
   top: 70px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 button {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 1rem;
 }
 .category-container {
   display: flex;
@@ -49,7 +53,7 @@ button {
   padding: 0;
   justify-content: center;
   gap: 10px;
-  
+  margin-top: 20px;
 }
 .category {
  color: white;
