@@ -5,17 +5,12 @@
   padding: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 .card {
-  padding: 6rem 12rem;
   background-color: black;
   border-radius: 1rem;
-
+  height:300px;
+  width: 700px;
+  padding: 2rem 4rem;
 }
 
 .quote {
@@ -30,8 +25,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
-  
 }
 h1 {
   position: absolute;
@@ -41,11 +34,17 @@ h1 {
   font-size: 2.5rem;
 }
 button {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   background-color: white;
   color: black;
   border: none;
   font-size: 1rem;
+  margin-top: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+button:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(80, 130, 200, 0.8) 0px 18px 36px -18px inset;
 }
 .category-container {
   display: flex;
@@ -60,9 +59,11 @@ button {
  text-decoration: none;
  text-indent: 0;
  list-style-type: none;
- padding: 3px
+ padding: 3px;
 }
 .wrapper {
- background-color: red;
+ background-color: rgba(255, 0, 0, 0.588);
  border-radius: 4px;
+ padding: 3px;
 }
+

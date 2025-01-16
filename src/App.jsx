@@ -15,13 +15,14 @@ function App() {
   };
 
   const formatTag = (tag) => {
+    console.log(tag);
     return tag.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
   };
-
+  
   return (
     <div className="container">
       <h1>Random Quote Generator</h1>
-      <div className="card">
+      <div className="card" id="quote-box">
         <button onClick={updateQuote}>
           Get Quote
         </button>
@@ -33,10 +34,13 @@ function App() {
         <ul className="category-container">
           {quote.tags.map((tag, index) => (
             <div className="wrapper" key={index}>
-              <li className="category">{formatTag(tag)}</li>
+              <li className="wrapper category">{formatTag(tag)}</li>
             </div>
           ))}
         </ul>
+        <div class="socials-container">
+          
+        </div>
       </div>
     </div>
   );
