@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import quotes from './sample/quotes.json'
 import './App.css'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 function App() {
   const [quote, setQuote] = useState({
     content: '',
@@ -15,22 +16,22 @@ function App() {
   };
 
   const formatTag = (tag) => {
-    console.log(tag);
     return tag.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
   };
   
+  const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`"${quote.content}" - ${quote.author}`)}`;
+  const authorUrl = `http://www.google.com/search?q=${encodeURIComponent(`${quote.author}`)}`;
+
   return (
     <div className="container">
       <h1>Random Quote Generator</h1>
       <div className="card" id="quote-box">
-        <button onClick={updateQuote}>
+        <button onClick={updateQuote} id="new-quote">
           Get Quote
         </button>
-        {quote.content && quote.author && (
-          <p className="quote">  
-            {`"${quote.content}" - ${quote.author}`}
-          </p>
-        )}
+        
+          <p className="quote" id="text">{quote.content}</p>
+  
         <ul className="category-container">
           {quote.tags.map((tag, index) => (
             <div className="wrapper" key={index}>
@@ -38,9 +39,9 @@ function App() {
             </div>
           ))}
         </ul>
-        <div class="socials-container">
-          
-        </div>
+        {quote.author && (<a href={authorUrl}><p id="author" className="author">{`- ${quote.author}`}</p>
+         </a>)}
+        <a id="tweet-quote" href={tweetUrl} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faTwitter} className="icon" /></a>
       </div>
     </div>
   );
