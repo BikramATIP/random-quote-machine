@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState, useEffect } from 'react';
 import quotes from './sample/quotes.json'
 import './App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,11 +9,15 @@ function App() {
     author: '',
     tags: []
   });
-
+ 
   const updateQuote = () => {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     setQuote(randomQuote);
   };
+
+  useEffect(() => {
+    updateQuote();
+  }, [])
 
   const formatTag = (tag) => {
     return tag.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
@@ -46,5 +50,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
